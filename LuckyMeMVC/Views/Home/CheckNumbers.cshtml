@@ -1,0 +1,107 @@
+﻿@model LuckyMeMVC.Models.LotteryNumber
+
+@{
+    ViewBag.Title = "CheckNumbers";
+}
+
+<head>
+    <link rel="stylesheet" href="~/Content/Site.css"/>
+</head>
+
+<div class="container-fluid jumbotron">
+    <div class="text-lg-start text-bg-success">
+        @if (ViewBag.Winning != null)
+        {
+            <h3>@ViewBag.Winning</h3>
+        }
+    </div>
+    <div class="text-lg-start text-bg-danger">
+        @if (ViewBag.Losing != null)
+        {
+            <h3>@ViewBag.Losing</h3>
+        }
+    </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h2>Lottery Numbers</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Number_1, htmlAttributes: new { @class = "control-label col-md-2", style = "font-weight: bold;" })
+                        <div class="col-md-10" style="margin-bottom: 25px">
+                            @Html.EditorFor(model => model.Number_1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Number_1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Number_2, htmlAttributes: new { @class = "control-label col-md-2", style = "font-weight: bold;" })
+                        <div class="col-md-10" style="margin-bottom: 25px">
+                            @Html.EditorFor(model => model.Number_2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Number_2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Number_3, htmlAttributes: new { @class = "control-label col-md-2", style = "font-weight: bold;" })
+                        <div class="col-md-10" style="margin-bottom: 25px">
+                            @Html.EditorFor(model => model.Number_3, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Number_3, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Number_4, htmlAttributes: new { @class = "control-label col-md-2", style = "font-weight: bold;" })
+                        <div class="col-md-10" style="margin-bottom: 25px">
+                            @Html.EditorFor(model => model.Number_4, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Number_4, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Number_5, htmlAttributes: new { @class = "control-label col-md-2", style = "font-weight: bold;" })
+                        <div class="col-md-10" style="margin-bottom: 25px">
+                            @Html.EditorFor(model => model.Number_5, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Number_5, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Number_6, htmlAttributes: new { @class = "control-label col-md-2", style = "font-weight: bold;" })
+                        <div class="col-md-10" style="margin-bottom: 25px">
+                            @Html.EditorFor(model => model.Number_6, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Number_6, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style="margin-left:auto">
+                        <input type="submit" value="Create" class="btn btn-primary btn-close-white" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to Home", "Index")
+        </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

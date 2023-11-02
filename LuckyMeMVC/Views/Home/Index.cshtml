@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row bg-grey border-opacity-75 p-5 text-center" aria-labelledby="aspnetTitle">
+        <h1 id="title">Do You Feel Lucky Today?</h1>
+        <br />
+        @Html.ActionLink("Check Your Numbers", "CheckNumbers", "Home", new {@class= "btn btn-size-sm btn-danger" })
+    </section>
+</main>
